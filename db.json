@@ -1,0 +1,184 @@
+{
+  "posts": [
+    {
+      "id": 3,
+      "name": "fgh",
+      "email": "sr1345s@gmail.com",
+      "mobile": "1234",
+      "address": "sdfgh",
+      "services": "dfgh"
+    },
+    {
+      "id": 4,
+      "name": "qwert",
+      "email": "s2231s@gmail.com",
+      "mobile": "2134",
+      "address": "eads",
+      "services": "wweafg"
+    }
+  ],
+  "customerData": [
+    {
+      "id": 1,
+      "firstname": "srs",
+      "lastname": "ssss",
+      "birthdate": "",
+      "gender": "male",
+      "education": "h",
+      "company": "gh",
+      "jobExperience": 0,
+      "salary": 1000,
+      "profile": "dfg"
+    },
+    {
+      "firstname": "qwer",
+      "lastname": "qwe",
+      "birthdate": "2023-02-10",
+      "gender": "",
+      "education": "Under Graduate",
+      "company": "as",
+      "jobExperience": 0,
+      "salary": 1000000,
+      "profile": "profile-image.PNG",
+      "id": 2
+    },
+    {
+      "firstname": "sdf",
+      "lastname": "asdf",
+      "birthdate": "2023-02-10",
+      "gender": "m",
+      "education": "Under Graduate",
+      "company": "sad",
+      "jobExperience": 0,
+      "salary": 100000,
+      "profile": "profile-image.PNG",
+      "id": 3
+    },
+    {
+      "firstname": "Shivam",
+      "lastname": "Shinde",
+      "birthdate": "2023-02-10",
+      "gender": "m",
+      "education": "Under Graduate",
+      "company": "SDE",
+      "jobExperience": 0,
+      "salary": 100000000,
+      "profile": "profile-image.PNG",
+      "id": 4
+    },
+    {
+      "firstname": "asd",
+      "lastname": "aesdf",
+      "birthdate": "2023-03-13",
+      "gender": "m",
+      "education": "Post-Graduate",
+      "company": "weh",
+      "jobExperience": 1,
+      "salary": 2345678,
+      "profile": "profile-image.PNG",
+      "id": 5
+    }
+  ],
+  "signup": [
+    {
+      "name": "srs",
+      "email": "ss@gmail.com",
+      "mobile": "9876543210",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "name": "Shivam",
+      "email": "srs@gmail.com",
+      "mobile": "9876543210",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "name": "ss",
+      "email": "ss@gmail.com",
+      "mobile": "9876543210",
+      "password": "1234",
+      "signupmode": "1",
+      "id": 3
+    },
+    {
+      "name": "srs",
+      "email": "srs@gmail.com",
+      "mobile": "9876543210",
+      "password": "1234",
+      "signupmode": "2",
+      "id": 4
+    },
+    {
+      "name": "vedant houde",
+      "email": "vedant@gmail.com",
+      "mobile": "9960720252",
+      "password": "12345678",
+      "signupmode": "1",
+      "id": 5
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Shivam Shinde",
+      "photo": "https://www.shutterstock.com/image-vector/male-avatar-profile-picture-vector-600w-149083895.jpg",
+      "email": "shivamshinde240@gmail.com",
+      "mobile": 9307870170,
+      "company": "Whirlpool",
+      "title": "Software Engineer",
+      "groupId": "2",
+      "id": "uHgNy3Z"
+    },
+    {
+      "name": "Adwait Kharkar",
+      "photo": "https://www.shutterstock.com/image-vector/male-avatar-profile-picture-vector-600w-149083895.jpg",
+      "email": "ak@gmail.com",
+      "mobile": 9876543210,
+      "company": "Hitachi",
+      "title": "Data Analyst",
+      "groupId": "3",
+      "id": "L2_8n43"
+    },
+    {
+      "name": "Sanket Houde",
+      "photo": "https://www.shutterstock.com/image-vector/male-avatar-profile-picture-vector-600w-149083895.jpg",
+      "email": "sh@gmail.com",
+      "mobile": 9876543211,
+      "company": "Whirlpool",
+      "title": "Data Analysis",
+      "groupId": "1",
+      "id": "Btfn3l4"
+    },
+    {
+      "name": "Dexter Morgan",
+      "photo": "https://www.shutterstock.com/image-vector/male-avatar-profile-picture-vector-600w-149083895.jpg",
+      "email": "dm@gmail.com",
+      "mobile": 9876543212,
+      "company": "HTRP",
+      "title": "Owner",
+      "groupId": "3",
+      "id": "amWCcdr"
+    }
+  ],
+  "groups": [
+    {
+      "id": "1",
+      "name": "Tax Management"
+    },
+    {
+      "id": "2",
+      "name": "Web Developer"
+    },
+    {
+      "id": "3",
+      "name": "YouTuber"
+    }
+  ],
+  "comments": [],
+  "profile": [
+    {
+      "name": "typicode"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card"> 
+                <div class="text-center">
+                    <h1>CRM Management Login</h1>
+                    <h5>Feel Free to Login</h5><hr>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="email" formControlName="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" formControlName="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="checkmode" class="form-label">Sign Up via Customer or Manager</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="signupmode" id="signupmode" >
+                            <option selected  value="1">Customer</option>
+                            <option value="2">Manager</option>
+                          </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+                  <a style="color:blue; margin-top: 10px;" routerLink="/signup">New User ? Click to Signup!</a>
+            </div>
+        </div>
+    </div>
+</div>

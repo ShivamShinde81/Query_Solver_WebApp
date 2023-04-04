@@ -1,0 +1,370 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <div class="max-width">
+            <div class="logo">
+                <a href="#"><span>Query</span>Solver</a>
+            </div>
+        </div>
+        <div class="d-flex">
+            <button routerLink="/homepage" class="btn btn-danger mx-3">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+<!-- <nav class=" navbar">
+    <div class="max-width">
+        <div class="logo">
+            <a href="#"><span>Query</span>Solver</a>
+        </div>
+        <ul class="menu1">
+            <button routerLink="/homepage" class="btn btn-danger mx-3">Log Out</button>    
+        </ul>
+    </div>
+    </nav> -->
+
+<!-- <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Customer Records Management</h1>
+        <p class="col-md-8 fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quas.</p>
+        <a class="btn btn-primary btn-lg" type="button" href="#" target="_blank">More</a>
+    </div>
+</div> -->
+<section class="customerInfo" id="customerInfo">
+    <div class="max-width">
+        <div class="customer-content">
+            <div class="text-1">Welcome to the Customer DashBoard</div>
+            <div class="text-2">Here you are able to see and contact our top most managers in India.</div>
+            <div class="text-3">And live a tension-free life.</div>
+            <!-- <a href="#">Hire Me</a> -->
+            <a href="#managerList">Click Here</a>
+        </div>
+    </div>
+</section>
+
+
+<h1>Manager List</h1>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" placeholder="Search Manager" type="text">
+                            </div>
+                            <div class="col">
+                                <input type="submit" class="btn btn-outline-dark" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<!-- Cards -->
+<div *ngIf="!loading && contacts.length > 0" class="container mt-3">
+    <div class="row">
+        <div *ngFor="let contact of contacts" class="col-md-6">
+            <div class="card list-group-item-danger shadow-lg my-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-4">
+                            <img [src]="contact.photo" alt="Manager Image" class="contact-img">
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">Name : <span class="fw-bold">{{contact.name}}</span></li>
+                                <li class="list-group-item">Email : <span class="fw-bold">{{contact.email}}</span></li>
+                                <li class="list-group-item">Mobile : <span class="fw-bold">{{contact.mobile}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+                            <a class="btn btn-warning my-1" routerLink="/contacts/view/{{contact.id}}">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-primary my-1" routerLink="/chat-comp">
+                                <i class="fa fa-comment"></i>
+                            </a>
+                            <!-- <a class="btn btn-primary my-1" routerLink="/contacts/edit/{{contact.id}}">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                            <button class="btn btn-danger my-1" (click)="clickDeleteContact(contact.id)">
+                                <i class="fa fa-trash-alt"></i>
+                            </button> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 
+<div>
+    <button (click)="showHideData()" class="btn btn-primary">Verify Details</button>
+    <table *ngIf="(showHideBtn==true)" class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">Services</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of allRestarantData">
+                <td>{{ data.id }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.mobile }}</td>
+                <td>{{ data.address }}</td>
+                <td>{{ data.services }}</td>
+
+                <td>
+                    <button (click)="onEditResto(data)" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Edit</button>
+                    &nbsp;
+                    <button class="btn btn-danger" (click)="deleteResto(data)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Restaurent Records Form</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formValue">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Restuarent Name here">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email Id</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Restuarent Email Id here">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Mobile</label>
+                        <input type="text" formControlName="mobile" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Restuarent Mobile No. here">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Address</label>
+                        <input type="text" formControlName="address" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Restuarent Address here">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Services</label>
+                        <input type="text" formControlName="services" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Restuarent Services here">
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="clear">Clear</button>
+                <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="addResto()">Add
+                    Details</button>
+                <button *ngIf="showbtn" type="button" class="btn btn-primary" (click)="updateResto()">Update
+                    Details</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+<!-- <div class="employees">
+    <div class="row mt-5">
+        <div class="col text-center">
+            <span class="text-secondary fs-2 fw-bold fst-italic">There are no employee Added!</span>
+        </div>
+    </div>
+ </div> -->
+
+<!-- <div class="search-customers">
+    <input type="search" name="" id="" class="form-control" placeholder="Search Customers"
+        (input)="searchEmployees(searchInput.value)" #searchInput>
+</div> -->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="employeeForm">
+                    <!-- First and Last Name -->
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="" id="" class="form-control" placeholder="First Name"
+                                formControlName="firstname">
+                        </div>
+                        <div class="col">
+                            <input type="text" name="" id="" class="form-control" placeholder="Last Name"
+                                formControlName="lastname">
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="row mt-5">
+                        <div class="col form-heading ">
+                            <h6 class="text-secondary fst-italic">Personal Information</h6>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="datapicker" class="form-label">Birthdate</label>
+                            <input type="date" class="form-control" id="datepicker" formControlName="birthday">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <h6 class="text-secondary">Gender</h6>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="gender" id="male" value="m"
+                                            formControlName="gender">
+                                        <label for="male" class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" name="gender" id="female" value="f"
+                                            formControlName="gender">
+                                        <label for="female" class="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <select name="" id="" class="form-select" formControlName="education">
+                                <option value="default" selected>Select your Education</option>
+                                <option *ngFor="let option of educationOptions; let i = index;" value="{{i}}">
+                                    {{option | titlecase}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="profile" class="form-label">Profile Image</label>
+                            <input type="file" name="" id="" class="form-control" id="profile" #fileInput>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col form-heading">
+                            <h6 class="text-secondary fst-italic">Job Information</h6>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" name="" id="" class="form-control" placeholder="Job Title"
+                                formControlName="company">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="number" name="" id="" class="form-control" placeholder="Work Experience (yrs)"
+                                formControlName="jobExperience">
+                        </div>
+                        <div class="col">
+                            <input type="number" name="" id="" class="form-control" placeholder="Annual Income"
+                                formControlName="salary">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    (click)="addEmployee()">Insert</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="employees black-border" *ngIf="employees.length == 0">
+    <div class="row mt-5">
+        <div class="col text-center">
+            <span class="text-secondary fs-2 fw-bold fst-italic">There are no employee Added!</span>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngFor="let employee of employeesToDisplay; let ei = index;">
+        <div class="col">
+            <!-- <app-customer [employee]="employee" (onRemoveEmployee)="removeEmployee($event)" (onEditEmployee)="editEmployee($event)"></app-customer> -->
+            <app-employee [employee]="employee" (onRemoveEmployee)="removeEmployee($event)"
+                (onEditEmployee)="editEmployee($event)"></app-employee>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+<footer>
+    <span>Created By <a href="#">Shivam</a> | <span class="far fa-copyright"></span>2023 All rights reserved.</span>
+</footer>

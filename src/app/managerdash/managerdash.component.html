@@ -1,0 +1,234 @@
+<!-- <nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2>Manager Dashboard</h2>
+        <div class="d-flex">
+            <button routerLink="/login" class="btn btn-danger mx-3">Log Out</button>
+        </div>
+    </div>
+</nav>
+<h1>This is Manager Portal</h1> -->
+
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <div class="max-width">
+            <div class="logo">
+                <a href="#"><span>Query</span>Solver</a>
+            </div>
+        </div>
+        <div class="d-flex">
+            <button routerLink="/homepage" class="btn btn-danger mx-3">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+<section class="customerInfo1" id="customerInfo">
+    <div class="customerInfo">
+        <div class="max-width">
+            <div class="customer-content">
+                <div class="text-1">Welcome to the Manager DashBoard</div>
+                <div class="text-2">Here you are able to add yourself in this portal and get a high class customers from world.</div>
+                <div class="text-3">And use your knowledge to improve life.</div>
+                <!-- <a href="#">Hire Me</a> -->
+                <a href="#managerList">Click Here</a>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h3 text-danger fw-bold">
+                NG Contacts
+                <a class="btn btn-danger btn-sm" routerLink="/contacts/add">
+                <i class="fa fa-plus-circle"></i> New</a>
+            </p>
+            <p class="fst-italic">You can add yourself. So your information display to our all customers.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" placeholder="Search Manager" type="text">
+                            </div>
+                            <div class="col">
+                                <input type="submit" class="btn btn-outline-dark" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<!-- Cards -->
+<!-- <div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card list-group-item-danger shadow-lg">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-4">
+                            <img src="../../assets/profile-image.PNG" alt="Manager Image" class="contact-img">
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">Name : <span class="fw-bold">Name</span></li>
+                                <li class="list-group-item">Email : <span class="fw-bold">Email</span></li>
+                                <li class="list-group-item">Mobile : <span class="fw-bold">Mobile</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+                            <a class="btn btn-warning my-1" routerLink="/contacts/view/:contactId">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-primary my-1" routerLink="/contacts/edit/:contactId">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                            <button class="btn btn-danger my-1">
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" placeholder="Search Manager" type="text">
+                            </div>
+                            <div class="col">
+                                <input type="submit" class="btn btn-outline-dark" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Spinner -->
+<div *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+
+<!-- Error Message -->
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger fw-bold">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<!-- Cards -->
+<div *ngIf="!loading && contacts.length > 0" class="container mt-3" id="managerList">
+    <div class="row">
+        <div *ngFor="let contact of contacts" class="col-md-6">
+            <div class="card list-group-item-danger shadow-lg my-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-sm-4">
+                            <img [src]="contact.photo" alt="Manager Image" class="contact-img">
+                        </div>
+                        <div class="col-sm-7">
+                            <ul class="list-group">
+                                <li class="list-group-item">Name : <span class="fw-bold">{{contact.name}}</span></li>
+                                <li class="list-group-item">Email : <span class="fw-bold">{{contact.email}}</span></li>
+                                <li class="list-group-item">Mobile : <span class="fw-bold">{{contact.mobile}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
+                            <a class="btn btn-warning my-1" routerLink="/contacts/view/{{contact.id}}">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a class="btn btn-primary my-1" routerLink="/contacts/edit/{{contact.id}}">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                            <button class="btn btn-danger my-1" (click)="clickDeleteContact(contact.id)">
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+                            <a class="btn btn-primary my-1" routerLink="/chat-comp">
+                                <i class="fa fa-comment"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 
+<div>
+
+    <button (click)="getAllData()" class="btn btn-success">Show All Details of Customers</button>
+    <div class="search-customers">
+        <input type="search" name="" id="" class="form-control" placeholder="Search Customers">
+    </div>
+    
+    <table *ngIf="(checkBtn==true)" class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">Services</th>
+                <th scope="col">Action</th>
+    
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let data of allRestarantData">
+                <td>{{ data.id }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.mobile }}</td>
+                <td>{{ data.address }}</td>
+                <td>{{ data.services }}</td>
+                <td>
+                    <button  class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">View Profile</button>
+                    &nbsp;
+                    <button class="btn btn-danger" >Contact</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+
+<footer>
+    <span>Created By <a href="#">Shivam</a> | <span class="far fa-copyright"></span>2023 All rights reserved.</span>
+</footer>

@@ -1,0 +1,16 @@
+.imageClass{
+    background: url(image.jpg) no-repeat center;
+
+} 
+.card{
+    margin-top: 15px;
+    border: 1px solid blue;
+    width: 550px;
+    padding: 45px;
+    position: absolute;
+    top: 7%;
+    left: 35%;
+    border-radius: 15px;
+}
+
+
